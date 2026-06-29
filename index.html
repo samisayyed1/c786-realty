@@ -9,16 +9,15 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="C 786 Realty — Dubai's Boutique Property Advisors" />
 <meta property="og:description" content="Your gateway to Dubai's finest properties. Book a private consultation." />
-<meta property="og:image" content="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80" />
+<meta property="og:image" content="https://samisayyed1.github.io/c786-realty/assets/hero-lounge.webp" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A1628'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='28' font-weight='600' fill='%23C9A961'%3E786%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500&display=swap" rel="stylesheet">
 
 <!-- Preload hero frames -->
-<link rel="preload" as="image" href="https://images.unsplash.com/photo-1582672060674-bc2bd808a8f5?auto=format&fit=crop&w=2400&q=80">
-<link rel="preload" as="image" href="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=2400&q=80">
+<link rel="preload" as="image" href="assets/hero-lounge.webp">
+<link rel="preload" as="image" href="assets/hero-breez-balcony.webp">
 
 <style>
 /* ============================================================
@@ -321,9 +320,17 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
   content: "";
   position: absolute; inset: 0; z-index: -1;
   background:
-    linear-gradient(180deg, rgba(10,22,40,0.55) 0%, rgba(10,22,40,0.30) 35%, rgba(10,22,40,0.92) 100%),
-    radial-gradient(ellipse at 30% 0%, rgba(201,169,97,0.10), transparent 50%);
+    linear-gradient(95deg, rgba(6,15,30,0.78) 0%, rgba(6,15,30,0.62) 32%, rgba(6,15,30,0.30) 62%, rgba(6,15,30,0.55) 100%),
+    linear-gradient(180deg, rgba(6,15,30,0.45) 0%, rgba(6,15,30,0.20) 40%, rgba(6,15,30,0.92) 100%),
+    radial-gradient(ellipse at 30% 0%, rgba(201,169,97,0.12), transparent 55%);
   pointer-events: none;
+}
+@media (max-width: 820px) {
+  .hero::before {
+    background:
+      linear-gradient(180deg, rgba(6,15,30,0.62) 0%, rgba(6,15,30,0.35) 35%, rgba(6,15,30,0.95) 100%),
+      radial-gradient(ellipse at 30% 10%, rgba(201,169,97,0.12), transparent 55%);
+  }
 }
 
 .hero__inner { width: 100%; position: relative; z-index: 2; }
@@ -618,13 +625,14 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
    FEATURED RESIDENCES
    ============================================================ */
 .residences-section { background: var(--paper); }
+.residences__note { text-align: center; font-size: 12.5px; color: var(--mute); margin: 40px auto 0; max-width: 64ch; }
 .residences {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
-@media (max-width: 980px) { .residences { grid-template-columns: 1fr 1fr; } .residence:nth-child(3) { grid-column: span 2; } }
-@media (max-width: 640px) { .residences { grid-template-columns: 1fr; } .residence:nth-child(3) { grid-column: auto; } }
+@media (max-width: 980px) { .residences { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .residences { grid-template-columns: 1fr; } }
 
 .residence {
   background: #fff;
@@ -688,6 +696,40 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
 }
 .residence__specs span { display: inline-flex; align-items: center; gap: 6px; }
 .residence__specs svg { width: 14px; height: 14px; }
+.residence__blurb { font-size: 14px; line-height: 1.55; color: var(--mute); margin: 0 0 18px; }
+.residence__facts { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 16px; border-top: 1px solid var(--line-dark); }
+.residence__facts span {
+  font-size: 11.5px; letter-spacing: 0.04em; font-weight: 500;
+  color: var(--ink);
+  background: var(--ivory);
+  border: 1px solid var(--line-dark);
+  padding: 5px 11px; border-radius: var(--r-pill);
+}
+.residence--cta {
+  display: flex; align-items: center;
+  background: linear-gradient(150deg, var(--gold-soft), #fff 60%);
+  border: 1px solid var(--gold);
+}
+.residence__ctabody { padding: 36px 32px; }
+.residence__price--soft {
+  font-size: 17px; font-weight: 500; letter-spacing: 0.01em;
+  color: var(--mute);
+}
+.residences:not(.is-expanded) .residence--extra { display: none; }
+.residences__more-wrap { display: flex; justify-content: center; margin-top: 44px; }
+.residences__more {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink); background: #fff;
+  border: 1px solid var(--line-dark); border-radius: var(--r-pill);
+  padding: 15px 30px; cursor: pointer;
+  transition: border-color .3s var(--ease-out), background .3s var(--ease-out), transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
+}
+.residences__more:hover { border-color: var(--gold); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.residences__more .count { color: var(--gold); }
+.residences__more svg { width: 15px; height: 15px; transition: transform .35s var(--ease-out); }
+.residences__more[aria-expanded="true"] svg { transform: rotate(180deg); }
 
 /* ============================================================
    AREAS
@@ -762,36 +804,44 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
   display: grid;
   grid-template-columns: 1fr 1.4fr;
   gap: 64px;
-  align-items: start;
+  align-items: stretch;
 }
 @media (max-width: 900px) { .brief { grid-template-columns: 1fr; gap: 32px; } }
 .brief__stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 1px;
   background: var(--line-dark);
   border-radius: var(--r-lg);
   overflow: hidden;
   border: 1px solid var(--line-dark);
+  height: 100%;
 }
+@media (max-width: 900px) { .brief__stats { height: auto; } }
 .brief__stat {
   background: var(--paper);
-  padding: 28px 24px;
+  padding: 32px 28px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
 }
 .brief__stat-val {
   font-family: var(--display);
-  font-size: 36px;
+  font-size: 60px;
   color: var(--ink);
   font-weight: 500;
   line-height: 1;
 }
+@media (max-width: 480px) { .brief__stat-val { font-size: 46px; } }
 .brief__stat-val .accent { color: var(--gold); }
 .brief__stat-label {
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 15.5px;
   color: var(--mute);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 .brief__points {
   list-style: none; padding: 0; margin: 24px 0 0;
@@ -822,7 +872,7 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
   aspect-ratio: 4/5;
   border-radius: var(--r-lg);
   overflow: hidden;
-  background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80');
+  background-image: url('assets/hero-breez-balcony.webp');
   background-size: cover; background-position: center;
 }
 .why__visual::after {
@@ -920,7 +970,7 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
   aspect-ratio: 4/5;
   border-radius: var(--r-lg);
   overflow: hidden;
-  background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80');
+  background-image: url('assets/card-fashionz-interior.webp');
   background-size: cover;
   background-position: center;
   border: 1px solid var(--line);
@@ -1268,6 +1318,166 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
   z-index: 95;
 }
 .toast.show { transform: translateX(0); }
+
+/* ============================================================
+   QUALIFIER MODAL
+   ============================================================ */
+.qz-overlay {
+  position: fixed; inset: 0; z-index: 300;
+  background: rgba(6,15,30,0.72);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  display: grid; place-items: center;
+  padding: clamp(12px, 3vw, 32px);
+  opacity: 0; visibility: hidden;
+  transition: opacity .35s var(--ease), visibility .35s var(--ease);
+}
+.qz-overlay.open { opacity: 1; visibility: visible; }
+.qz {
+  width: min(680px, 100%);
+  max-height: calc(100dvh - 24px);
+  background: var(--ink);
+  color: var(--ivory);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-lg);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  transform: translateY(18px) scale(.985);
+  transition: transform .4s var(--ease-out);
+  position: relative;
+  isolation: isolate;
+}
+.qz-overlay.open .qz { transform: none; }
+.qz::before {
+  content: ""; position: absolute; z-index: -1;
+  top: -160px; right: -120px; width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(201,169,97,0.14), transparent 70%);
+  pointer-events: none;
+}
+@media (max-width: 560px) {
+  .qz-overlay { padding: 0; }
+  .qz { width: 100%; max-height: 100dvh; height: 100dvh; border-radius: 0; border: 0; }
+}
+
+.qz__bar { height: 4px; background: rgba(255,255,255,0.10); flex-shrink: 0; }
+.qz__bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--gold-deep), var(--gold)); transition: width .45s var(--ease-out); }
+
+.qz__top {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px clamp(20px, 4vw, 36px) 0;
+  flex-shrink: 0;
+}
+.qz__brand { display: flex; align-items: center; gap: 10px; }
+.qz__brand .brand__mark { width: 36px; height: 36px; font-size: 11px; }
+.qz__brand-name { font-family: var(--display); font-size: 15px; color: var(--ivory); }
+.qz__step-count { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+.qz__close {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18); color: var(--ivory);
+  display: grid; place-items: center; flex-shrink: 0;
+  transition: border-color .25s var(--ease), background .25s var(--ease);
+}
+.qz__close:hover { border-color: var(--gold); background: rgba(255,255,255,0.05); }
+.qz__close svg { width: 16px; height: 16px; }
+
+.qz__body {
+  padding: clamp(18px, 3vw, 28px) clamp(20px, 4vw, 36px);
+  overflow-y: auto; flex: 1;
+  -webkit-overflow-scrolling: touch;
+}
+.qz__eyebrow { color: var(--gold); margin-bottom: 14px; }
+.qz__q { font-family: var(--display); font-size: clamp(24px, 3.4vw, 32px); line-height: 1.12; margin: 0 0 8px; color: #fff; }
+.qz__hint { font-size: 14px; color: rgba(255,255,255,0.6); margin: 0 0 24px; }
+
+.qz__options { display: grid; gap: 12px; }
+.qz__options.cols-2 { grid-template-columns: 1fr 1fr; }
+.qz__options.cols-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 480px) { .qz__options.cols-2, .qz__options.cols-3 { grid-template-columns: 1fr 1fr; } }
+
+.qz-opt {
+  text-align: left;
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--r-md);
+  color: var(--ivory);
+  font-size: 15px; font-weight: 500;
+  transition: border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
+  width: 100%;
+}
+.qz__options.cols-3 .qz-opt { flex-direction: column; align-items: flex-start; gap: 6px; padding: 16px; }
+.qz-opt:hover { border-color: var(--gold); background: rgba(201,169,97,0.10); transform: translateY(-2px); }
+.qz-opt.sel { border-color: var(--gold); background: rgba(201,169,97,0.16); box-shadow: inset 0 0 0 1px var(--gold); }
+.qz-opt__sub { font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 400; }
+.qz-opt__check { margin-left: auto; color: var(--gold); opacity: 0; transition: opacity .2s var(--ease); }
+.qz-opt.sel .qz-opt__check { opacity: 1; }
+
+.qz__paste { margin-top: 16px; }
+.qz__paste label { display: block; font-size: 12px; letter-spacing: 0.04em; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+.qz__field {
+  width: 100%; padding: 14px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: var(--r-md);
+  color: #fff; font-size: 15px;
+}
+.qz__field::placeholder { color: rgba(255,255,255,0.4); }
+.qz__field:focus { outline: none; border-color: var(--gold); background: rgba(255,255,255,0.07); box-shadow: 0 0 0 4px rgba(201,169,97,0.14); }
+
+.qz__consent { display: flex; gap: 12px; align-items: flex-start; margin-top: 18px; font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+.qz__consent input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--gold); flex-shrink: 0; }
+.qz__consent a { color: var(--gold-soft); text-decoration: underline; }
+
+.qz__foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 16px clamp(20px, 4vw, 36px);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}
+.qz__back {
+  color: rgba(255,255,255,0.6); font-size: 14px;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: color .2s var(--ease);
+}
+.qz__back:hover { color: var(--ivory); }
+.qz__back[hidden] { visibility: hidden; }
+.qz__next { padding: 14px 30px; }
+.qz__next:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.qz__trust { font-size: 11px; color: rgba(255,255,255,0.4); }
+
+/* Result screen */
+.qz-result { text-align: left; }
+.qz-result__badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(201,169,97,0.16); border: 1px solid var(--gold);
+  color: var(--gold-soft);
+  padding: 7px 14px; border-radius: var(--r-pill);
+  font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+  margin-bottom: 18px;
+}
+.qz-result__title { font-family: var(--display); font-size: clamp(24px, 3.4vw, 32px); color: #fff; margin: 0 0 18px; line-height: 1.15; }
+.qz-result__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.10); border-radius: var(--r-md); overflow: hidden; margin-bottom: 20px; }
+@media (max-width: 480px) { .qz-result__grid { grid-template-columns: 1fr; } }
+.qz-result__cell { background: var(--ink-soft); padding: 18px; }
+.qz-result__k { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+.qz-result__v { font-family: var(--display); font-size: 22px; color: var(--gold); line-height: 1.1; }
+.qz-result__v small { font-family: var(--sans); font-size: 12px; color: rgba(255,255,255,0.6); display: block; margin-top: 4px; font-weight: 400; letter-spacing: 0; }
+.qz-result__matches { display: grid; gap: 8px; margin-bottom: 22px; }
+.qz-result__match {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--r-md); background: rgba(255,255,255,0.03);
+}
+.qz-result__match svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
+.qz-result__match b { color: #fff; font-weight: 600; }
+.qz-result__match span { color: rgba(255,255,255,0.6); font-size: 13px; margin-left: auto; }
+.qz-result__ctas { display: grid; gap: 10px; }
+.qz-result__ctas .btn { width: 100%; }
+.qz-spin { display: grid; place-items: center; gap: 18px; padding: 48px 0; text-align: center; }
+.qz-spin__ring { width: 48px; height: 48px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.15); border-top-color: var(--gold); animation: qzspin 1s linear infinite; }
+.qz-spin p { color: rgba(255,255,255,0.6); font-size: 14px; margin: 0; }
+@keyframes qzspin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
@@ -1292,8 +1502,8 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav__cta">
-      <a href="tel:+971585930850" class="btn btn-ghost">+971 58 593 0850</a>
-      <a href="#book" class="btn btn-primary">Book a call</a>
+      <a href="tel:+971585930850" class="btn btn-ghost" data-cta="nav_call">+971 58 593 0850</a>
+      <button type="button" class="btn btn-primary" data-qualify data-cta="nav_qualify">See if you qualify</button>
       <button class="nav__toggle" id="navToggle" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -1320,8 +1530,8 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
     <a href="#faq" data-close>FAQ</a>
   </div>
   <div class="drawer__cta">
-    <a href="tel:+971585930850" class="btn btn-ghost">+971 58 593 0850</a>
-    <a href="#book" class="btn btn-primary" data-close>Book a call</a>
+    <a href="tel:+971585930850" class="btn btn-ghost" data-cta="drawer_call">+971 58 593 0850</a>
+    <button type="button" class="btn btn-primary" data-qualify data-cta="drawer_qualify" data-close>See if you qualify</button>
   </div>
 </aside>
 
@@ -1330,18 +1540,18 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
      ============================================================ -->
 <header class="hero" id="top">
   <div class="carousel" id="carousel">
-    <div class="slide active kenburns-out" data-place="Palm Jumeirah · Crescent" style="background-image:url('https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=2400&q=80')"></div>
-    <div class="slide" data-place="Downtown · Burj-side" style="background-image:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2400&q=80')"></div>
-    <div class="slide" data-place="Dubai Marina · Skyline" style="background-image:url('https://images.unsplash.com/photo-1546412414-e1885259563a?auto=format&fit=crop&w=2400&q=80')"></div>
-    <div class="slide" data-place="Business Bay · Canal" style="background-image:url('https://images.unsplash.com/photo-1582672060674-bc2bd808a8f5?auto=format&fit=crop&w=2400&q=80')"></div>
-    <div class="slide" data-place="Burj Al Arab · Jumeirah" style="background-image:url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=2400&q=80')"></div>
+    <div class="slide active kenburns-out" data-place="Shahrukhz · Sky Lounge" style="background-image:url('assets/hero-lounge.webp')"></div>
+    <div class="slide" data-place="Breez · Waterfront Residences" style="background-image:url('assets/hero-breez-balcony.webp')"></div>
+    <div class="slide" data-place="Breez · Aquarium Lobby" style="background-image:url('assets/hero-aquarium.webp')"></div>
+    <div class="slide" data-place="Fashionz · Marble Atrium" style="background-image:url('assets/hero-fashionz-lobby.webp')"></div>
+    <div class="slide" data-place="Sportz · Arrival Lobby" style="background-image:url('assets/hero-sportz-lobby.webp')"></div>
   </div>
 
   <div class="carousel__controls" id="carouselDots" role="tablist" aria-label="Hero slides"></div>
 
   <div class="carousel__caption">
     <span class="carousel__caption-label" id="capLabel">Now showing</span>
-    <span class="carousel__caption-place" id="capPlace">Palm Jumeirah · Crescent</span>
+    <span class="carousel__caption-place" id="capPlace">Shahrukhz · Sky Lounge</span>
   </div>
 
   <div class="container hero__inner">
@@ -1350,11 +1560,11 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
       The keys to Dubai's <em class="gold">finest</em> addresses — opened quietly, on your terms.
     </h1>
     <p class="hero__sub">
-      We work with a small, deliberate roster of buyers, sellers, and investors. The result: off-market access most agents never see, negotiation that saves clients an average of <strong style="color:var(--gold-soft);font-weight:500">6–9%</strong>, and zero noise. Welcome to real estate the way it should feel.
+      Direct access to Dubai's most sought-after launches — <strong style="color:var(--gold-soft);font-weight:500">Danube, Azizi, DAMAC &amp; Reportage</strong> — with payment plans from 1% a month and a Golden Visa pathway. One senior advisor. Zero pressure.
     </p>
     <div class="hero__cta">
-      <a href="#book" class="btn btn-primary btn-icon">Book a private consultation</a>
-      <a href="#residences" class="btn btn-ghost">View featured residences</a>
+      <button type="button" class="btn btn-primary btn-icon" data-qualify data-cta="hero_qualify">See what you qualify for</button>
+      <a href="#residences" class="btn btn-ghost" data-cta="hero_launches">Explore the launches</a>
     </div>
     <div class="hero__meta">
       <div class="hero__meta-item">
@@ -1387,7 +1597,7 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
     <span class="ticker__item">Discreet & Confidential</span>
     <span class="ticker__item">Investor-Grade Underwriting</span>
     <span class="ticker__item">Golden Visa Pathway</span>
-    <span class="ticker__item">English · Arabic · Hindi · Russian</span>
+    <span class="ticker__item">English · Arabic · Hindi · Tamil</span>
     <span class="ticker__item">Senior Advisor on Every File</span>
     <span class="ticker__item">No Fee Until We Close</span>
     <!-- duplicate for seamless loop -->
@@ -1396,7 +1606,7 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
     <span class="ticker__item">Discreet & Confidential</span>
     <span class="ticker__item">Investor-Grade Underwriting</span>
     <span class="ticker__item">Golden Visa Pathway</span>
-    <span class="ticker__item">English · Arabic · Hindi · Russian</span>
+    <span class="ticker__item">English · Arabic · Hindi · Tamil</span>
     <span class="ticker__item">Senior Advisor on Every File</span>
     <span class="ticker__item">No Fee Until We Close</span>
   </div>
@@ -1413,7 +1623,7 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
       <span class="press__logo bold">RIYADH</span>
       <span class="press__logo">Mumbai</span>
       <span class="press__logo serif-small">Singapore</span>
-      <span class="press__logo bold">MOSCOW</span>
+      <span class="press__logo bold">CHENNAI</span>
       <span class="press__logo">New York</span>
       <span class="press__logo serif-small">Hong Kong</span>
     </div>
@@ -1427,7 +1637,7 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
   <div class="container">
     <div class="counters">
       <div class="counter reveal">
-        <div class="counter__value"><span class="pre">AED</span><span class="num" data-target="2.4" data-decimals="1">0</span><span class="suf">B+</span></div>
+        <div class="counter__value"><span class="pre">AED</span><span class="num" data-target="480">0</span><span class="suf">M+</span></div>
         <div class="counter__label">In closed transactions</div>
       </div>
       <div class="counter reveal reveal-delay-1">
@@ -1508,67 +1718,200 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
   <div class="container">
     <div class="section-head reveal">
       <div>
-        <span class="eyebrow">Featured residences</span>
-        <h2 class="display" style="margin-top:16px">A small window into <em class="gold">today's</em> portfolio.</h2>
+        <span class="eyebrow">Signature launches</span>
+        <h2 class="display" style="margin-top:16px">Dubai's most talked-about <em class="gold">new</em> addresses.</h2>
       </div>
       <div class="section-head__intro">
-        <p class="lead">A representative selection from our current and recently sold inventory. The rest — and the off-market files — open only with a private consultation.</p>
+        <p class="lead">We hold direct developer allocations across Danube, Azizi, DAMAC and Reportage — branded living, flexible payment plans, and units that move before they ever reach the portals. A snapshot below; the full availability opens with a consultation.</p>
       </div>
     </div>
 
-    <div class="residences">
+    <div class="residences" id="residencesGrid">
+      <!-- Featured (always visible) -->
       <article class="residence reveal">
-        <div class="residence__photo" style="background-image:url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80')">
-          <span class="residence__tag gold">Off-market</span>
+        <div class="residence__photo" style="background-image:url('assets/card-shahrukhz.webp');background-position:center top">
+          <span class="residence__tag gold">SRK-branded</span>
         </div>
         <div class="residence__body">
-          <div class="residence__loc">Palm Jumeirah · Signature Villa</div>
-          <h3 class="residence__title">Frond G — Beachfront Villa</h3>
-          <div class="residence__price"><span class="from">From</span>AED 42M</div>
-          <div class="residence__specs">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20v8H2zM4 12V8a2 2 0 012-2h12a2 2 0 012 2v4"/></svg>6 Beds</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16v6a2 2 0 01-2 2H6a2 2 0 01-2-2zM7 12V5a2 2 0 014 0"/></svg>8 Baths</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/></svg>12,400 sqft</span>
+          <div class="residence__loc">Sheikh Zayed Road · Danube</div>
+          <h3 class="residence__title">Shahrukhz by Danube</h3>
+          <div class="residence__price"><span class="from">From</span>AED 1.9M</div>
+          <p class="residence__blurb">A 55-storey office icon on Sheikh Zayed Road with a rooftop helipad — a tribute to Shah Rukh Khan's self-made journey.</p>
+          <div class="residence__facts">
+            <span>55 Storeys</span><span>Helipad</span><span>1% Monthly</span>
           </div>
         </div>
       </article>
 
       <article class="residence reveal reveal-delay-1">
-        <div class="residence__photo" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80')">
-          <span class="residence__tag">New listing</span>
+        <div class="residence__photo" style="background-image:url('assets/hero-breez-balcony.webp')">
+          <span class="residence__tag">Now selling</span>
         </div>
         <div class="residence__body">
-          <div class="residence__loc">Downtown · Branded Residence</div>
-          <h3 class="residence__title">Burj-View Sky Penthouse</h3>
-          <div class="residence__price"><span class="from">From</span>AED 18.5M</div>
-          <div class="residence__specs">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20v8H2zM4 12V8a2 2 0 012-2h12a2 2 0 012 2v4"/></svg>4 Beds</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16v6a2 2 0 01-2 2H6a2 2 0 01-2-2zM7 12V5a2 2 0 014 0"/></svg>5 Baths</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/></svg>4,800 sqft</span>
+          <div class="residence__loc">Dubai Maritime City · Danube</div>
+          <h3 class="residence__title">Breez by Danube</h3>
+          <div class="residence__price"><span class="from">From</span>AED 1.5M</div>
+          <p class="residence__blurb">A 60-floor oceanfront tower with 360° sea views, fully furnished homes and 40+ resort-style amenities.</p>
+          <div class="residence__facts">
+            <span>60 Floors</span><span>Fully furnished</span><span>360° Sea view</span>
           </div>
         </div>
       </article>
 
       <article class="residence reveal reveal-delay-2">
-        <div class="residence__photo" style="background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80')">
-          <span class="residence__tag">Recently sold</span>
+        <div class="residence__photo" style="background-image:url('assets/card-islands2.jpg')">
+          <span class="residence__tag gold">Island living</span>
         </div>
         <div class="residence__body">
-          <div class="residence__loc">Emirates Hills · Private Estate</div>
-          <h3 class="residence__title">Golf-Course Mansion</h3>
-          <div class="residence__price"><span class="from">Closed at</span>AED 67M</div>
-          <div class="residence__specs">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20v8H2zM4 12V8a2 2 0 012-2h12a2 2 0 012 2v4"/></svg>7 Beds</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16v6a2 2 0 01-2 2H6a2 2 0 01-2-2zM7 12V5a2 2 0 014 0"/></svg>9 Baths</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/></svg>22,000 sqft</span>
+          <div class="residence__loc">Dubailand · DAMAC</div>
+          <h3 class="residence__title">DAMAC Islands 2</h3>
+          <div class="residence__price residence__price--soft">Price on request</div>
+          <p class="residence__blurb">Eight island escapes woven into one 20-million-sq-ft paradise — 4-bedroom townhouses, twin villas and 6-bedroom luxury villas wrapped in lagoons.</p>
+          <div class="residence__facts">
+            <span>4–6 Bedrooms</span><span>Townhouses &amp; villas</span><span>Lagoon living</span>
           </div>
+        </div>
+      </article>
+
+      <article class="residence reveal">
+        <div class="residence__photo" style="background-image:url('assets/card-fashionz-interior.webp')">
+          <span class="residence__tag gold">FashionTV</span>
+        </div>
+        <div class="residence__body">
+          <div class="residence__loc">Jumeirah Village Triangle · Danube</div>
+          <h3 class="residence__title">Fashionz by Danube</h3>
+          <div class="residence__price"><span class="from">From</span>AED 1.1M</div>
+          <p class="residence__blurb">Dubai's first FashionTV-branded residences — a haute-couture lifestyle with rooftop pool, FTV spa and café.</p>
+          <div class="residence__facts">
+            <span>FTV branded</span><span>Rooftop pool</span><span>1% Monthly</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="residence reveal reveal-delay-1">
+        <div class="residence__photo" style="background-image:url('assets/card-reportage-hills.jpg')">
+          <span class="residence__tag">Townhouses</span>
+        </div>
+        <div class="residence__body">
+          <div class="residence__loc">Dubailand · Reportage</div>
+          <h3 class="residence__title">Reportage Hills</h3>
+          <div class="residence__price residence__price--soft">Price on request</div>
+          <p class="residence__blurb">Contemporary townhouses and villas amid landscaped hills and pine — timeless architecture with generous private gardens.</p>
+          <div class="residence__facts">
+            <span>3–4 Bedrooms</span><span>Private gardens</span><span>By Reportage</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Extra (revealed via "View all") -->
+      <article class="residence residence--extra reveal">
+        <div class="residence__photo" style="background-image:url('assets/card-noura.jpg')">
+          <span class="residence__tag gold">Wellness living</span>
+        </div>
+        <div class="residence__body">
+          <div class="residence__loc">Jebel Ali · Azizi</div>
+          <h3 class="residence__title">Azizi Noura</h3>
+          <div class="residence__price residence__price--soft">Price on request</div>
+          <p class="residence__blurb">Refined freehold residences wrapped around a leisure pool and landscaped wellness spaces — minutes from Sheikh Zayed Road and the metro.</p>
+          <div class="residence__facts">
+            <span>Studio–3 BR</span><span>Leisure pool</span><span>Freehold</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="residence residence--extra reveal reveal-delay-1">
+        <div class="residence__photo" style="background-image:url('assets/card-arian.jpg')">
+          <span class="residence__tag gold">JAFZA Freehold</span>
+        </div>
+        <div class="residence__body">
+          <div class="residence__loc">Jebel Ali · Azizi</div>
+          <h3 class="residence__title">Azizi Arian</h3>
+          <div class="residence__price residence__price--soft">Price on request</div>
+          <p class="residence__blurb">One of the few freehold residential addresses inside JAFZA — studios to 3-bedroom homes steps from Jebel Ali Metro and Sheikh Zayed Road.</p>
+          <div class="residence__facts">
+            <span>Studio–3 BR</span><span>0 min Metro</span><span>Freehold</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="residence residence--extra reveal reveal-delay-2">
+        <div class="residence__photo" style="background-image:url('assets/card-lina.jpg')">
+          <span class="residence__tag">Now selling</span>
+        </div>
+        <div class="residence__body">
+          <div class="residence__loc">Downtown Jebel Ali · Azizi</div>
+          <h3 class="residence__title">Azizi Lina</h3>
+          <div class="residence__price residence__price--soft">Price on request</div>
+          <p class="residence__blurb">Freehold studios to 3-bedroom homes at the gateway to JAFZA — three minutes to the metro, with cinema, pools and curated amenities.</p>
+          <div class="residence__facts">
+            <span>Studio–3 BR</span><span>3 min Metro</span><span>Freehold</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="residence residence--extra reveal">
+        <div class="residence__photo" style="background-image:url('assets/card-sportz-active.webp')">
+          <span class="residence__tag">1% Monthly</span>
+        </div>
+        <div class="residence__body">
+          <div class="residence__loc">Dubai Sports City · Danube</div>
+          <h3 class="residence__title">Sportz by Danube</h3>
+          <div class="residence__price"><span class="from">From</span>AED 850K</div>
+          <p class="residence__blurb">Twin towers built around an athletic lifestyle — 40+ sports and wellness amenities, furnished and move-in ready.</p>
+          <div class="residence__facts">
+            <span>40+ Amenities</span><span>Twin towers</span><span>Furnished</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="residence residence--extra reveal reveal-delay-1">
+        <div class="residence__photo" style="background-image:url('assets/card-greenz.webp')">
+          <span class="residence__tag">Handover 2030</span>
+        </div>
+        <div class="residence__body">
+          <div class="residence__loc">Dubailand · Danube</div>
+          <h3 class="residence__title">Greenz by Danube</h3>
+          <div class="residence__price"><span class="from">From</span>AED 4.9M</div>
+          <p class="residence__blurb">Fully furnished townhouses and villas wrapped in greenery — private gardens, resort amenities, a 1%-a-month plan.</p>
+          <div class="residence__facts">
+            <span>Furnished</span><span>Private garden</span><span>1% Monthly</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="residence residence--extra reveal reveal-delay-2">
+        <div class="residence__photo" style="background-image:url('assets/card-verdana.jpg')">
+          <span class="residence__tag">Evergreen</span>
+        </div>
+        <div class="residence__body">
+          <div class="residence__loc">Dubai Investment Park · Reportage</div>
+          <h3 class="residence__title">Reportage Empire</h3>
+          <div class="residence__price residence__price--soft">Price on request</div>
+          <p class="residence__blurb">Evergreen, design-led residences in the heart of Dubai Investment Park — modern homes built for outstanding value and strong rental returns.</p>
+          <div class="residence__facts">
+            <span>Next to Green Community</span><span>Investment-grade</span><span>By Reportage</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="residence residence--cta reveal">
+        <div class="residence__ctabody">
+          <span class="eyebrow" style="color:var(--gold)">Not sure which fits?</span>
+          <h3 class="display" style="font-size:26px;color:var(--ink);margin:12px 0 10px">Match me to the right launch.</h3>
+          <p style="color:var(--mute);font-size:15px;margin:0 0 22px">Answer a few quick questions and we'll tell you which developments fit your budget, payment plan and Golden Visa goals.</p>
+          <button type="button" class="btn btn-dark btn-icon" data-qualify data-cta="residences_qualify">See what you qualify for</button>
         </div>
       </article>
     </div>
 
-    <div style="text-align:center;margin-top:48px" class="reveal">
-      <a href="#book" class="btn btn-outline btn-icon">Request the full portfolio</a>
+    <div class="residences__more-wrap reveal">
+      <button type="button" class="residences__more" id="resMore" aria-expanded="false" aria-controls="residencesGrid" data-cta="residences_view_all">
+        <span class="more-label">View all <span class="count">11</span> residences</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
     </div>
+
+    <p class="residences__note reveal">Indicative starting prices, subject to availability and developer release. Full price lists and floor plans shared on request.</p>
   </div>
 </section>
 
@@ -1588,56 +1931,67 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
     </div>
 
     <div class="areas">
-      <a href="#book" class="area reveal" aria-label="Palm Jumeirah">
-        <div class="area__img" style="background-image:url('https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1600&q=80')"></div>
+      <a href="#residences" class="area reveal" aria-label="Dubai Maritime City" data-cta="area_maritime">
+        <div class="area__img" style="background-image:url('assets/card-maritime.webp')"></div>
         <div class="area__body">
           <div>
-            <span class="area__meta">Iconic Waterfront · From AED 8M</span>
-            <h3 class="area__title">Palm Jumeirah</h3>
+            <span class="area__meta">Waterfront living · Breez</span>
+            <h3 class="area__title">Dubai Maritime City</h3>
           </div>
           <span class="area__arrow">→</span>
         </div>
       </a>
 
-      <a href="#book" class="area reveal reveal-delay-1" aria-label="Downtown Dubai">
-        <div class="area__img" style="background-image:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80')"></div>
+      <a href="#residences" class="area reveal reveal-delay-1" aria-label="Sheikh Zayed Road" data-cta="area_szr">
+        <div class="area__img" style="background-image:url('assets/card-shahrukhz.webp');background-position:center top"></div>
         <div class="area__body">
           <div>
-            <span class="area__meta">Burj-Side · From AED 2.4M</span>
-            <h3 class="area__title">Downtown Dubai</h3>
+            <span class="area__meta">Branded offices · Shahrukhz</span>
+            <h3 class="area__title">Sheikh Zayed Road</h3>
           </div>
           <span class="area__arrow">→</span>
         </div>
       </a>
 
-      <a href="#book" class="area reveal reveal-delay-2" aria-label="Dubai Marina">
-        <div class="area__img" style="background-image:url('https://images.unsplash.com/photo-1546412414-e1885259563a?auto=format&fit=crop&w=1200&q=80')"></div>
+      <a href="#residences" class="area reveal reveal-delay-2" aria-label="Jumeirah Village Triangle" data-cta="area_jvt">
+        <div class="area__img" style="background-image:url('assets/card-fashionz-interior.webp')"></div>
         <div class="area__body">
           <div>
-            <span class="area__meta">Marina Skyline · From AED 1.8M</span>
-            <h3 class="area__title">Dubai Marina</h3>
+            <span class="area__meta">FashionTV residences · Fashionz</span>
+            <h3 class="area__title">Jumeirah Village Triangle</h3>
           </div>
           <span class="area__arrow">→</span>
         </div>
       </a>
 
-      <a href="#book" class="area reveal reveal-delay-1" aria-label="Business Bay">
-        <div class="area__img" style="background-image:url('https://images.unsplash.com/photo-1571055107559-3e67626fa8be?auto=format&fit=crop&w=1200&q=80')"></div>
+      <a href="#residences" class="area reveal reveal-delay-1" aria-label="Dubai Sports City" data-cta="area_sportscity">
+        <div class="area__img" style="background-image:url('assets/card-sportz-active.webp')"></div>
         <div class="area__body">
           <div>
-            <span class="area__meta">Business District · From AED 1.2M</span>
-            <h3 class="area__title">Business Bay</h3>
+            <span class="area__meta">Active community · Sportz</span>
+            <h3 class="area__title">Dubai Sports City</h3>
           </div>
           <span class="area__arrow">→</span>
         </div>
       </a>
 
-      <a href="#book" class="area reveal reveal-delay-2" aria-label="Emirates Hills">
-        <div class="area__img" style="background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80')"></div>
+      <a href="#residences" class="area reveal reveal-delay-2" aria-label="Dubailand" data-cta="area_dubailand">
+        <div class="area__img" style="background-image:url('assets/card-greenz.webp')"></div>
         <div class="area__body">
           <div>
-            <span class="area__meta">Private Villas · From AED 25M</span>
-            <h3 class="area__title">Emirates Hills</h3>
+            <span class="area__meta">Townhouses &amp; villas · Greenz</span>
+            <h3 class="area__title">Dubailand Greens</h3>
+          </div>
+          <span class="area__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="#residences" class="area reveal" aria-label="Downtown Jebel Ali" data-cta="area_jebelali">
+        <div class="area__img" style="background-image:url('assets/card-jebelali.jpg')"></div>
+        <div class="area__body">
+          <div>
+            <span class="area__meta">Freehold near JAFZA · Azizi</span>
+            <h3 class="area__title">Downtown Jebel Ali</h3>
           </div>
           <span class="area__arrow">→</span>
         </div>
@@ -1851,7 +2205,7 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
 
         <ul class="book__perks">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Free 30-minute discovery call with a senior advisor — not a call-center.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>English, Arabic, Hindi & Russian spoken. International clients welcome.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>English, Arabic, Hindi & Tamil spoken. International clients welcome.</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Your details stay private. No third-party sharing, ever.</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Off-market files shared only after our first conversation.</li>
         </ul>
@@ -1926,7 +2280,7 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
           <label for="notes">Anything else we should know?</label>
           <textarea id="notes" name="notes" placeholder="Timeline, must-haves, questions..."></textarea>
         </div>
-        <button type="submit" class="btn btn-dark btn-icon form__submit">Send my brief via WhatsApp</button>
+        <button type="submit" class="btn btn-dark btn-icon form__submit" data-cta="book_form_submit">Send my brief via WhatsApp</button>
         <p class="form__legal">By submitting, you agree to be contacted by C 786 Realty. We never share your information.</p>
       </form>
     </div>
@@ -1959,7 +2313,7 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
       </details>
       <details>
         <summary>Do you work with off-plan and off-market deals?</summary>
-        <p class="answer">Actively. We have allocations across Emaar, Damac, Sobha, Nakheel, Meraas, and several boutique developers — including launch-day units that never reach the public release. Our off-market secondary inventory is shared only after the first consultation.</p>
+        <p class="answer">Actively. We hold direct allocations across Danube Properties — including Shahrukhz, Breez, Fashionz, Sportz and Greenz — alongside Emaar, Damac, Sobha, Nakheel and Meraas, with launch-day units that never reach the public release. Our off-market secondary inventory is shared only after the first consultation.</p>
       </details>
       <details>
         <summary>Can I get a UAE residency visa through property?</summary>
@@ -1988,8 +2342,8 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
   <div class="container cta-strip__inner">
     <h3>Ready to talk Dubai property? Let's start with a 30-minute call.</h3>
     <div class="cta-strip__cta">
-      <a href="#book" class="btn btn-dark btn-icon">Book a call</a>
-      <a href="https://wa.me/971585930850?text=Hi%20C%20786%20Realty%2C%20I%27d%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener" class="btn btn-outline">WhatsApp us</a>
+      <button type="button" class="btn btn-dark btn-icon" data-qualify data-cta="strip_qualify">See what you qualify for</button>
+      <a href="https://wa.me/971585930850?text=Hi%20C%20786%20Realty%2C%20I%27d%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener" class="btn btn-outline" data-cta="strip_whatsapp">WhatsApp us</a>
     </div>
   </div>
 </section>
@@ -2055,13 +2409,41 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
 </footer>
 
 <!-- Floating WhatsApp + Sticky Bar -->
-<a class="wa-float" href="https://wa.me/971585930850?text=Hi%20C%20786%20Realty%2C%20I%27d%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a class="wa-float" href="https://wa.me/971585930850?text=Hi%20C%20786%20Realty%2C%20I%27d%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-cta="wa_float">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1s0-.4.1-.6c.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5s.1-.4 0-.5c-.1-.2-.7-1.6-.9-2.2-.2-.6-.4-.5-.6-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.5s1 2.9 1.2 3.1c.1.2 2 3 4.8 4.2 1.6.7 2.3.8 2.8.7.3-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.9.6 3.6 1.5 5.1L2 22l5.1-1.4c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.8 15 3.3 13.5 3.3 12 3.3 7.2 7.2 3.3 12 3.3s8.7 3.9 8.7 8.7-3.9 8.7-8.7 8.7z"/></svg>
 </a>
 
 <div class="sticky-bar" id="stickyBar">
-  <span class="sticky-bar__text">Free 30-min consultation · senior advisor on every call</span>
-  <a href="#book" class="btn btn-primary">Book a call</a>
+  <span class="sticky-bar__text">Find your best-fit Dubai launch in 60 seconds</span>
+  <button type="button" class="btn btn-primary" data-qualify data-cta="sticky_qualify">See if you qualify</button>
+</div>
+
+<!-- ============================================================
+     QUALIFIER MODAL
+     ============================================================ -->
+<div class="qz-overlay" id="qz" role="dialog" aria-modal="true" aria-labelledby="qzQ" hidden>
+  <div class="qz" role="document">
+    <div class="qz__bar"><div class="qz__bar-fill" id="qzBar"></div></div>
+    <div class="qz__top">
+      <div class="qz__brand">
+        <span class="brand__mark">786</span>
+        <span class="qz__brand-name">C 786 Realty</span>
+      </div>
+      <span class="qz__step-count" id="qzCount">Step 1 / 7</span>
+      <button class="qz__close" id="qzClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="qz__body" id="qzBody"></div>
+    <div class="qz__foot" id="qzFoot">
+      <button type="button" class="qz__back" id="qzBack" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><polyline points="15 18 9 12 15 6"/></svg>
+        Back
+      </button>
+      <span class="qz__trust">No spam · senior advisor replies in 24h</span>
+      <button type="button" class="btn btn-primary qz__next btn-icon" id="qzNext" disabled>Continue</button>
+    </div>
+  </div>
 </div>
 
 <!-- Toast -->
@@ -2171,6 +2553,31 @@ const io = new IntersectionObserver((entries) => {
 reveals.forEach(el => io.observe(el));
 
 // ============================================================
+// RESIDENCES — view all / show fewer
+// ============================================================
+(function () {
+  const grid = document.getElementById('residencesGrid');
+  const btn = document.getElementById('resMore');
+  if (!grid || !btn) return;
+  const label = btn.querySelector('.more-label');
+  btn.addEventListener('click', () => {
+    const expanded = grid.classList.toggle('is-expanded');
+    btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    label.innerHTML = expanded
+      ? 'Show fewer'
+      : 'View all <span class="count">11</span> residences';
+    if (expanded) {
+      // ensure newly shown cards animate in
+      grid.querySelectorAll('.residence--extra.reveal').forEach((el, i) => {
+        setTimeout(() => el.classList.add('in'), 40 + i * 60);
+      });
+    } else {
+      grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+})();
+
+// ============================================================
 // COUNTERS — count up
 // ============================================================
 (function () {
@@ -2238,6 +2645,320 @@ form.addEventListener('submit', (e) => {
 
 // Year
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// ============================================================
+// EVENT TRACKING — dataLayer + gtag bridge
+// ============================================================
+window.dataLayer = window.dataLayer || [];
+function track(event, params) {
+  const payload = Object.assign({ event: event }, params || {});
+  window.dataLayer.push(payload);
+  if (typeof window.gtag === 'function') { window.gtag('event', event, params || {}); }
+  // visible in console while there's no analytics tag wired up
+  if (window.console && console.debug) console.debug('[track]', event, params || {});
+}
+// Track every tagged CTA click
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('[data-cta]');
+  if (el) track('cta_click', { cta: el.getAttribute('data-cta'), text: (el.textContent || '').trim().slice(0, 40) });
+}, { capture: true });
+
+// ============================================================
+// QUALIFIER FLOW
+// ============================================================
+(function () {
+  const overlay = document.getElementById('qz');
+  const body = document.getElementById('qzBody');
+  const bar = document.getElementById('qzBar');
+  const countEl = document.getElementById('qzCount');
+  const foot = document.getElementById('qzFoot');
+  const backBtn = document.getElementById('qzBack');
+  const nextBtn = document.getElementById('qzNext');
+  const closeBtn = document.getElementById('qzClose');
+
+  const PROJECTS = [
+    { key: 'Sportz',    name: 'Sportz by Danube',    from: 850000,  loc: 'Dubai Sports City' },
+    { key: 'Fashionz',  name: 'Fashionz by Danube',  from: 1100000, loc: 'JVT · FashionTV' },
+    { key: 'Breez',     name: 'Breez by Danube',     from: 1500000, loc: 'Dubai Maritime City' },
+    { key: 'Shahrukhz', name: 'Shahrukhz by Danube', from: 1900000, loc: 'Sheikh Zayed Rd · Offices' },
+    { key: 'Greenz',    name: 'Greenz by Danube',    from: 4900000, loc: 'Townhouses & Villas' },
+  ];
+
+  const STEPS = [
+    { key: 'goal', eyebrow: "Let's find your fit", q: "What's your goal in Dubai?", hint: "This shapes everything we show you next.", cols: 1, options: [
+      { v: 'Live in it', sub: 'A home for you or your family' },
+      { v: 'Investment / rental yield', sub: 'Returns, not Instagram' },
+      { v: 'Golden Visa residency', sub: '10-year UAE residency' },
+      { v: 'Just exploring', sub: 'Researching the market' },
+    ]},
+    { key: 'project', eyebrow: 'Our launches', q: 'Which launch speaks to you?', hint: "Pick one — or tell us you're open.", cols: 3, options: [
+      { v: 'Shahrukhz', sub: 'SZR offices' },
+      { v: 'Breez', sub: 'Maritime City' },
+      { v: 'Fashionz', sub: 'FashionTV · JVT' },
+      { v: 'Sportz', sub: 'Sports City' },
+      { v: 'Greenz', sub: 'Villas' },
+      { v: 'Open to options', sub: 'Show me what fits' },
+    ], paste: { label: 'Already eyeing a listing elsewhere? Paste the link (Bayut, Property Finder, Dubizzle)', ph: 'https://...' } },
+    { key: 'budget', eyebrow: 'Budget', q: "What's your budget?", hint: "In AED. A range is fine — we'll refine it on the call.", cols: 3, options: [
+      { v: 'Up to AED 1M',  max: 1000000 },
+      { v: 'AED 1M – 2M',   max: 2000000 },
+      { v: 'AED 2M – 3M',   max: 3000000 },
+      { v: 'AED 3M – 5M',   max: 5000000 },
+      { v: 'AED 5M – 10M',  max: 10000000 },
+      { v: 'AED 10M+',      max: 99000000 },
+    ]},
+    { key: 'funding', eyebrow: 'Funding', q: 'How will you fund it?', hint: 'Danube offers a 1%-a-month plan on most launches.', cols: 2, options: [
+      { v: 'Cash' },
+      { v: 'Mortgage' },
+      { v: 'Payment plan (1% / month)' },
+      { v: 'Not decided yet' },
+    ]},
+    { key: 'deposit', eyebrow: 'Deposit', q: 'How much can you put down now?', hint: 'Off-plan typically books from a 20% deposit.', cols: 2, options: [
+      { v: '~20% (booking deposit)' },
+      { v: '~30%' },
+      { v: '~50%' },
+      { v: 'Full amount (cash)' },
+    ]},
+    { key: 'timeline', eyebrow: 'Timeline', q: 'When are you looking to move on this?', hint: '', cols: 2, options: [
+      { v: "I'm ready now" },
+      { v: '1 – 3 months' },
+      { v: '3 – 6 months' },
+      { v: 'Just researching' },
+    ]},
+    { key: 'contact', eyebrow: 'Last step', q: 'Where should we send your matches?', hint: "We'll WhatsApp a tailored shortlist — senior advisor, no call-center.", contact: true },
+  ];
+
+  const TOTAL = STEPS.length;
+  let i = 0;
+  let opened = false;
+  const answers = {};
+
+  const checkSvg = '<svg class="qz-opt__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>';
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+  function fmtAED(n) { return 'AED ' + (n >= 1000000 ? (n / 1000000).toFixed(n % 1000000 ? 1 : 0) + 'M' : Math.round(n / 1000) + 'K'); }
+
+  function render() {
+    const step = STEPS[i];
+    countEl.textContent = 'Step ' + (i + 1) + ' / ' + TOTAL;
+    bar.style.width = ((i + 1) / (TOTAL + 1) * 100) + '%';
+    backBtn.hidden = i === 0;
+    foot.style.display = 'flex';
+
+    if (step.contact) {
+      nextBtn.style.display = 'inline-flex';
+      nextBtn.textContent = 'See my matches';
+      nextBtn.disabled = true;
+      body.innerHTML =
+        '<span class="eyebrow qz__eyebrow">' + esc(step.eyebrow) + '</span>' +
+        '<h2 class="qz__q" id="qzQ">' + esc(step.q) + '</h2>' +
+        '<p class="qz__hint">' + esc(step.hint) + '</p>' +
+        '<div class="qz__paste" style="margin-top:0"><label for="qzName">Full name</label>' +
+        '<input class="qz__field" id="qzName" type="text" autocomplete="name" placeholder="Your name" /></div>' +
+        '<div class="qz__paste"><label for="qzPhone">Phone / WhatsApp</label>' +
+        '<input class="qz__field" id="qzPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+971 ..." /></div>' +
+        '<label class="qz__consent"><input type="checkbox" id="qzConsent" />' +
+        '<span>I agree to be contacted by C 786 Realty about my enquiry. We never share your details. <a href="#faq" data-close-qz>Privacy</a>.</span></label>';
+      const name = body.querySelector('#qzName');
+      const phone = body.querySelector('#qzPhone');
+      const consent = body.querySelector('#qzConsent');
+      const validate = () => { nextBtn.disabled = !(name.value.trim() && phone.value.trim().replace(/\D/g, '').length >= 7 && consent.checked); };
+      [name, phone].forEach(el => el.addEventListener('input', validate));
+      consent.addEventListener('change', validate);
+      if (answers.name) name.value = answers.name;
+      if (answers.phone) phone.value = answers.phone;
+      setTimeout(() => name.focus(), 60);
+      track('qualify_step', { step: i + 1, key: step.key });
+      return;
+    }
+
+    // option step
+    nextBtn.style.display = 'none';
+    const colClass = step.cols === 3 ? ' cols-3' : step.cols === 2 ? ' cols-2' : '';
+    let html =
+      '<span class="eyebrow qz__eyebrow">' + esc(step.eyebrow) + '</span>' +
+      '<h2 class="qz__q" id="qzQ">' + esc(step.q) + '</h2>' +
+      (step.hint ? '<p class="qz__hint">' + esc(step.hint) + '</p>' : '<div style="height:8px"></div>') +
+      '<div class="qz__options' + colClass + '">';
+    step.options.forEach((o, idx) => {
+      const selected = answers[step.key] === o.v ? ' sel' : '';
+      html += '<button type="button" class="qz-opt' + selected + '" data-idx="' + idx + '">' +
+        '<span><span style="display:block">' + esc(o.v) + '</span>' +
+        (o.sub ? '<span class="qz-opt__sub">' + esc(o.sub) + '</span>' : '') + '</span>' +
+        checkSvg + '</button>';
+    });
+    html += '</div>';
+    if (step.paste) {
+      html += '<div class="qz__paste"><label for="qzPaste">' + esc(step.paste.label) + '</label>' +
+        '<input class="qz__field" id="qzPaste" type="url" inputmode="url" placeholder="' + esc(step.paste.ph) + '" /></div>';
+    }
+    body.innerHTML = html;
+
+    if (step.paste) {
+      const pasteEl = body.querySelector('#qzPaste');
+      if (answers.listing) pasteEl.value = answers.listing;
+      pasteEl.addEventListener('input', () => { answers.listing = pasteEl.value.trim(); });
+    }
+    body.querySelectorAll('.qz-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const o = step.options[+btn.getAttribute('data-idx')];
+        answers[step.key] = o.v;
+        if (o.max != null) answers.budgetMax = o.max;
+        body.querySelectorAll('.qz-opt').forEach(b => b.classList.remove('sel'));
+        btn.classList.add('sel');
+        track('qualify_select', { step: i + 1, key: step.key, value: o.v });
+        setTimeout(goNext, 280);
+      });
+    });
+    track('qualify_step', { step: i + 1, key: step.key });
+  }
+
+  function goNext() {
+    const step = STEPS[i];
+    if (step.contact) {
+      answers.name = body.querySelector('#qzName').value.trim();
+      answers.phone = body.querySelector('#qzPhone').value.trim();
+      showResult();
+      return;
+    }
+    if (i < TOTAL - 1) { i++; body.scrollTop = 0; render(); }
+  }
+  function goBack() { if (i > 0) { i--; body.scrollTop = 0; render(); } }
+
+  function computeMatches() {
+    const max = answers.budgetMax || 99000000;
+    let matched = PROJECTS.filter(p => p.from <= max);
+    if (answers.project && answers.project !== 'Open to options') {
+      const pinned = PROJECTS.find(p => p.key === answers.project);
+      if (pinned) { matched = [pinned].concat(matched.filter(p => p.key !== pinned.key)); }
+    }
+    if (!matched.length) matched = [PROJECTS[0]];
+    return matched.slice(0, 4);
+  }
+  function visaStatus() {
+    const max = answers.budgetMax || 0;
+    if (max >= 2000000) return { t: 'Golden Visa eligible', s: '10-year residency at AED 2M+' };
+    if (max >= 750000)  return { t: '2-year investor visa', s: 'Eligible from AED 750K' };
+    return { t: "Let's map your visa", s: 'We\'ll confirm on the call' };
+  }
+
+  function showResult() {
+    foot.style.display = 'none';
+    backBtn.hidden = true;
+    bar.style.width = '100%';
+    countEl.textContent = 'Your result';
+    body.innerHTML = '<div class="qz-spin"><div class="qz-spin__ring"></div><p>Matching you to Dubai\'s best-fit launches…</p></div>';
+    track('qualify_complete', {
+      goal: answers.goal, project: answers.project, budget: answers.budget,
+      funding: answers.funding, deposit: answers.deposit, timeline: answers.timeline,
+      has_listing: !!answers.listing,
+    });
+
+    setTimeout(() => {
+      const matched = computeMatches();
+      const visa = visaStatus();
+      const monthly = Math.round((matched[0].from * 0.01) / 1000) * 1000;
+      const firstName = answers.name ? answers.name.trim().split(/\s+/)[0] : '';
+      const titleText = (firstName ? firstName + ', you' : 'You') + ' qualify for ' + matched.length + ' Dubai ' + (matched.length === 1 ? 'launch' : 'launches') + '.';
+      let matchRows = '';
+      matched.forEach(p => {
+        matchRows += '<div class="qz-result__match">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
+          '<b>' + esc(p.name) + '</b> <span>' + esc(p.loc) + ' · from ' + fmtAED(p.from) + '</span></div>';
+      });
+      body.innerHTML =
+        '<div class="qz-result">' +
+        '<span class="qz-result__badge">★ ' + esc(visa.t) + '</span>' +
+        '<h2 class="qz-result__title" id="qzQ">' + esc(titleText) + '</h2>' +
+        '<div class="qz-result__grid">' +
+          '<div class="qz-result__cell"><div class="qz-result__k">Your budget</div><div class="qz-result__v">' + esc(answers.budget || '—') + '</div></div>' +
+          '<div class="qz-result__cell"><div class="qz-result__k">From / month</div><div class="qz-result__v">' + fmtAED(monthly) + '<small>on a 1% payment plan</small></div></div>' +
+          '<div class="qz-result__cell"><div class="qz-result__k">Residency</div><div class="qz-result__v" style="font-size:18px">' + esc(visa.t) + '<small>' + esc(visa.s) + '</small></div></div>' +
+          '<div class="qz-result__cell"><div class="qz-result__k">Funding</div><div class="qz-result__v" style="font-size:18px">' + esc(answers.funding || '—') + '</div></div>' +
+        '</div>' +
+        '<div class="qz-result__matches">' + matchRows + '</div>' +
+        '<div class="qz-result__ctas">' +
+          '<button type="button" class="btn btn-primary btn-icon" id="qzWa" data-cta="qualify_whatsapp">Send my shortlist on WhatsApp</button>' +
+          '<button type="button" class="btn btn-ghost" id="qzBook" data-cta="qualify_book">Prefer a call? Book a discovery call</button>' +
+        '</div></div>';
+      body.querySelector('#qzWa').addEventListener('click', sendWhatsApp);
+      body.querySelector('#qzBook').addEventListener('click', () => { close(); location.hash = '#book'; });
+      track('qualify_result_shown', { matches: matched.length, visa: visa.t });
+    }, 1100);
+  }
+
+  function sendWhatsApp() {
+    const matched = computeMatches().map(p => p.name).join(', ');
+    const lines = [
+      "Hi C 786 Realty — here's my qualification summary:",
+      '',
+      'Name: ' + (answers.name || '—'),
+      'Goal: ' + (answers.goal || '—'),
+      'Interested in: ' + (answers.project || '—'),
+      'Budget: ' + (answers.budget || '—'),
+      'Funding: ' + (answers.funding || '—'),
+      'Deposit ready: ' + (answers.deposit || '—'),
+      'Timeline: ' + (answers.timeline || '—'),
+    ];
+    if (answers.listing) lines.push('Listing link: ' + answers.listing);
+    lines.push('', 'Best-fit launches: ' + matched, 'Please send me the shortlist & price lists.');
+    const url = 'https://wa.me/971585930850?text=' + encodeURIComponent(lines.join('\n'));
+    track('qualify_submit', { channel: 'whatsapp', project: answers.project, budget: answers.budget });
+    window.open(url, '_blank', 'noopener');
+  }
+
+  // open / close
+  let lastFocus = null;
+  function open(source) {
+    if (overlay.hidden) {
+      overlay.hidden = false;
+      requestAnimationFrame(() => overlay.classList.add('open'));
+    }
+    document.body.style.overflow = 'hidden';
+    lastFocus = document.activeElement;
+    if (!opened) { i = 0; render(); opened = true; }
+    sessionStorage.setItem('qz_seen', '1');
+    track('qualify_open', { source: source || 'unknown' });
+  }
+  function close() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { overlay.hidden = true; }, 350);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+    track('qualify_close', { step: i + 1 });
+  }
+
+  document.querySelectorAll('[data-qualify]').forEach(el => {
+    el.addEventListener('click', (e) => { e.preventDefault(); open(el.getAttribute('data-cta') || 'button'); });
+  });
+  closeBtn.addEventListener('click', close);
+  backBtn.addEventListener('click', goBack);
+  nextBtn.addEventListener('click', goNext);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !overlay.hidden) close(); });
+  document.addEventListener('click', (e) => { if (e.target.closest('[data-close-qz]')) close(); });
+
+  // Auto-invite once per session: earliest of scroll-depth, dwell timer, or exit-intent
+  if (!sessionStorage.getItem('qz_seen')) {
+    let fired = false;
+    const invite = (src) => {
+      if (fired || sessionStorage.getItem('qz_seen')) return;
+      fired = true;
+      cleanup();
+      open(src);
+    };
+    const onScroll = () => { if (window.scrollY > window.innerHeight * 0.85) invite('auto_scroll'); };
+    const onExit = (e) => { if (e.clientY <= 0) invite('exit_intent'); };
+    const timer = setTimeout(() => invite('auto_timer'), 22000);
+    function cleanup() {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', onScroll);
+      document.removeEventListener('mouseout', onExit);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('mouseout', onExit);
+  }
+})();
 </script>
 </body>
 </html>
