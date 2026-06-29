@@ -1478,6 +1478,99 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
 .qz-spin__ring { width: 48px; height: 48px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.15); border-top-color: var(--gold); animation: qzspin 1s linear infinite; }
 .qz-spin p { color: rgba(255,255,255,0.6); font-size: 14px; margin: 0; }
 @keyframes qzspin { to { transform: rotate(360deg); } }
+
+/* ============================================================
+   MOBILE OPTIMISATION (phones only — desktop unaffected)
+   ============================================================ */
+@media (max-width: 640px) {
+  /* Rhythm — calmer vertical spacing so nothing feels crowded */
+  section { padding-block: 64px; }
+  .section-head { margin-bottom: 36px; }
+  body { font-size: 16px; }
+
+  /* Nav — declutter so the brand never wraps; CTA lives in the drawer */
+  .nav { padding: 14px 0; }
+  .nav__inner { gap: 12px; }
+  .nav__cta .btn { display: none; }
+  .brand__name { white-space: nowrap; font-size: 18px; }
+  .brand__sub { white-space: nowrap; }
+
+  /* Hero — right-size the headline and give it room to breathe */
+  h1.display { font-size: clamp(34px, 9.4vw, 46px); line-height: 1.08; }
+  .hero { padding-block: 104px 56px; min-height: 92svh; }
+  .hero__eyebrow { margin-bottom: 22px; }
+  .hero__title { margin-bottom: 22px; max-width: none; }
+  .hero__sub { font-size: 16px; line-height: 1.55; margin-bottom: 30px; }
+  /* Full-width, thumb-friendly CTAs */
+  .hero__cta { flex-direction: column; align-items: stretch; gap: 12px; }
+  .hero__cta .btn { width: 100%; }
+  .hero__meta { margin-top: 40px; padding-top: 26px; gap: 22px 28px; }
+  .hero__meta-num { font-size: 26px; }
+
+  /* Generic buttons a touch larger to tap */
+  .btn { padding: 15px 24px; }
+
+  /* Section headings — slightly smaller so they don't dominate */
+  h2.display { font-size: clamp(30px, 8.2vw, 40px); }
+
+  /* Counters — keep two-up but tighten */
+  .counters { gap: 28px 20px; }
+  .counter { padding: 8px; }
+  .counter__value { font-size: 38px; }
+  .counter__label { font-size: 11px; letter-spacing: 0.14em; margin-top: 10px; }
+
+  /* Services / cards padding */
+  .service { padding: 32px 26px; }
+
+  /* Residences — comfortable single column */
+  .residence__body { padding: 24px; }
+  .residence__title { font-size: 22px; }
+  .residences__more { width: 100%; justify-content: center; }
+
+  /* Market brief — labels readable, no oversized gaps */
+  .brief { gap: 28px; }
+  .brief__stat { padding: 24px 22px; gap: 16px; }
+  .brief__stat-label { font-size: 14px; }
+
+  /* Why / process / steps */
+  .why__item { grid-template-columns: 32px 1fr; gap: 14px; }
+  .step__num { width: 52px; height: 52px; margin-bottom: 18px; }
+
+  /* Founder + testimonial — tame the huge decorative type */
+  .founder__quote-mark { font-size: 76px; margin-bottom: -12px; }
+  .founder__quote { font-size: 21px; }
+  .testimonial__quote { font-size: 150px; margin-bottom: -70px; }
+  .testimonial__text { font-size: 23px; }
+
+  /* FAQ — smaller question type, tighter rows */
+  .faq summary { font-size: 19px; gap: 16px; }
+  .faq summary::after { font-size: 22px; }
+  .faq details { padding: 22px 0; }
+  .faq .answer { font-size: 15px; }
+
+  /* Book a call card */
+  .book { padding: 28px 22px; border-radius: var(--r-lg); }
+
+  /* CTA strip — center and stack cleanly */
+  .cta-strip__inner { flex-direction: column; align-items: flex-start; gap: 22px; }
+  .cta-strip__cta { width: 100%; }
+  .cta-strip__cta .btn { width: 100%; }
+
+  /* One clean floating CTA on mobile — drop the sticky bar that overlapped it */
+  .sticky-bar { display: none !important; }
+  .wa-float { width: 54px; height: 54px; bottom: 20px; right: 16px; }
+  .wa-float svg { width: 25px; height: 25px; }
+
+  /* Quiz overlay — comfortable on small screens */
+  .qz__options.cols-3 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 400px) {
+  h1.display { font-size: 33px; }
+  .hero__meta { gap: 18px 22px; }
+  .counter__value { font-size: 34px; }
+  .testimonial__quote { font-size: 120px; margin-bottom: -56px; }
+}
 </style>
 </head>
 <body>
