@@ -732,6 +732,47 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
 .residences__more[aria-expanded="true"] svg { transform: rotate(180deg); }
 
 /* ============================================================
+   DEVELOPER PARTNERS
+   ============================================================ */
+.developers-section { background: var(--ivory-2); }
+.developers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line-dark);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+@media (max-width: 860px) { .developers-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .developers-grid { grid-template-columns: repeat(2, 1fr); } }
+.dev-cell {
+  background: var(--paper);
+  padding: 34px 18px;
+  min-height: 132px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 8px;
+  text-align: center;
+  transition: background .35s var(--ease);
+}
+.dev-cell:hover { background: #fff; }
+.dev-cell__name {
+  font-family: var(--display);
+  font-size: 23px; font-weight: 500;
+  color: var(--ink); line-height: 1.12; letter-spacing: 0.01em;
+}
+.dev-cell__loc {
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold);
+}
+.developers__note { text-align: center; margin-top: 32px; font-size: 14px; color: var(--mute); }
+.developers__note strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 640px) {
+  .dev-cell { padding: 26px 14px; min-height: 104px; gap: 6px; }
+  .dev-cell__name { font-size: 19px; }
+}
+
+/* ============================================================
    AREAS
    ============================================================ */
 .areas-section { background: var(--ink); color: var(--ivory); }
@@ -1653,7 +1694,7 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
       The keys to Dubai's <em class="gold">finest</em> addresses — opened quietly, on your terms.
     </h1>
     <p class="hero__sub">
-      Direct access to Dubai's most sought-after launches — <strong style="color:var(--gold-soft);font-weight:500">Danube, Azizi, DAMAC &amp; Reportage</strong> — with payment plans from 1% a month and a Golden Visa pathway. One senior advisor. Zero pressure.
+      Direct access to Dubai's most sought-after launches like <strong style="color:var(--gold-soft);font-weight:500">Danube, Azizi, DAMAC, Emaar, Reportage and many others</strong> — with payment plans from 0.5% a month and a Golden Visa pathway. One senior advisor. Zero pressure.
     </p>
     <div class="hero__cta">
       <button type="button" class="btn btn-primary btn-icon" data-qualify data-cta="hero_qualify">See what you qualify for</button>
@@ -1815,7 +1856,7 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
         <h2 class="display" style="margin-top:16px">Dubai's most talked-about <em class="gold">new</em> addresses.</h2>
       </div>
       <div class="section-head__intro">
-        <p class="lead">We hold direct developer allocations across Danube, Azizi, DAMAC and Reportage — branded living, flexible payment plans, and units that move before they ever reach the portals. A snapshot below; the full availability opens with a consultation.</p>
+        <p class="lead">We hold direct developer allocations across Danube, Azizi, DAMAC, Emaar, Reportage and many of Dubai's leading developers — branded living, flexible payment plans, and units that move before they ever reach the portals. A snapshot below; the full availability opens with a consultation.</p>
       </div>
     </div>
 
@@ -2005,6 +2046,40 @@ section { padding-block: clamp(72px, 10vw, 144px); position: relative; }
     </div>
 
     <p class="residences__note reveal">Indicative starting prices, subject to availability and developer release. Full price lists and floor plans shared on request.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     DEVELOPER PARTNERS
+     ============================================================ -->
+<section class="developers-section" id="developers">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Our developer partners</span>
+        <h2 class="display" style="margin-top:16px">Every major <em class="gold">developer</em>, one trusted desk.</h2>
+      </div>
+      <div class="section-head__intro">
+        <p class="lead">We're developer-agnostic by design — with direct allocations and launch-day access across the UAE's leading names and select international markets. Whatever fits your goal, we can place it.</p>
+      </div>
+    </div>
+
+    <div class="developers-grid reveal">
+      <div class="dev-cell"><span class="dev-cell__name">Emaar</span><span class="dev-cell__loc">Dubai</span></div>
+      <div class="dev-cell"><span class="dev-cell__name">DAMAC</span><span class="dev-cell__loc">Dubai</span></div>
+      <div class="dev-cell"><span class="dev-cell__name">Danube</span><span class="dev-cell__loc">Dubai</span></div>
+      <div class="dev-cell"><span class="dev-cell__name">Azizi</span><span class="dev-cell__loc">Dubai</span></div>
+      <div class="dev-cell"><span class="dev-cell__name">Sobha</span><span class="dev-cell__loc">Dubai</span></div>
+      <div class="dev-cell"><span class="dev-cell__name">Nakheel</span><span class="dev-cell__loc">Dubai</span></div>
+      <div class="dev-cell"><span class="dev-cell__name">Meraas</span><span class="dev-cell__loc">Dubai</span></div>
+      <div class="dev-cell"><span class="dev-cell__name">Dubai Properties</span><span class="dev-cell__loc">Dubai</span></div>
+      <div class="dev-cell"><span class="dev-cell__name">Reportage</span><span class="dev-cell__loc">UAE</span></div>
+      <div class="dev-cell"><span class="dev-cell__name">Samana</span><span class="dev-cell__loc">Dubai</span></div>
+      <div class="dev-cell"><span class="dev-cell__name">BNW</span><span class="dev-cell__loc">Ras Al Khaimah</span></div>
+      <div class="dev-cell"><span class="dev-cell__name">Mira Developments</span><span class="dev-cell__loc">Georgia</span></div>
+    </div>
+
+    <p class="developers__note reveal">…and many more across the UAE, Ras Al Khaimah and international markets. <strong>If it's launching, we can get you in.</strong></p>
   </div>
 </section>
 
@@ -2800,10 +2875,10 @@ document.addEventListener('click', (e) => {
       { v: 'AED 5M – 10M',  max: 10000000 },
       { v: 'AED 10M+',      max: 99000000 },
     ]},
-    { key: 'funding', eyebrow: 'Funding', q: 'How will you fund it?', hint: 'Danube offers a 1%-a-month plan on most launches.', cols: 2, options: [
+    { key: 'funding', eyebrow: 'Funding', q: 'How will you fund it?', hint: 'Most launches offer a 0.5–1%-a-month payment plan.', cols: 2, options: [
       { v: 'Cash' },
       { v: 'Mortgage' },
-      { v: 'Payment plan (1% / month)' },
+      { v: 'Payment plan (0.5–1% / month)' },
       { v: 'Not decided yet' },
     ]},
     { key: 'deposit', eyebrow: 'Deposit', q: 'How much can you put down now?', hint: 'Off-plan typically books from a 20% deposit.', cols: 2, options: [
@@ -2950,7 +3025,7 @@ document.addEventListener('click', (e) => {
     setTimeout(() => {
       const matched = computeMatches();
       const visa = visaStatus();
-      const monthly = Math.round((matched[0].from * 0.01) / 1000) * 1000;
+      const monthly = Math.round((matched[0].from * 0.005) / 1000) * 1000;
       const firstName = answers.name ? answers.name.trim().split(/\s+/)[0] : '';
       const titleText = (firstName ? firstName + ', you' : 'You') + ' qualify for ' + matched.length + ' Dubai ' + (matched.length === 1 ? 'launch' : 'launches') + '.';
       let matchRows = '';
@@ -2965,7 +3040,7 @@ document.addEventListener('click', (e) => {
         '<h2 class="qz-result__title" id="qzQ">' + esc(titleText) + '</h2>' +
         '<div class="qz-result__grid">' +
           '<div class="qz-result__cell"><div class="qz-result__k">Your budget</div><div class="qz-result__v">' + esc(answers.budget || '—') + '</div></div>' +
-          '<div class="qz-result__cell"><div class="qz-result__k">From / month</div><div class="qz-result__v">' + fmtAED(monthly) + '<small>on a 1% payment plan</small></div></div>' +
+          '<div class="qz-result__cell"><div class="qz-result__k">From / month</div><div class="qz-result__v">' + fmtAED(monthly) + '<small>from a 0.5% payment plan</small></div></div>' +
           '<div class="qz-result__cell"><div class="qz-result__k">Residency</div><div class="qz-result__v" style="font-size:18px">' + esc(visa.t) + '<small>' + esc(visa.s) + '</small></div></div>' +
           '<div class="qz-result__cell"><div class="qz-result__k">Funding</div><div class="qz-result__v" style="font-size:18px">' + esc(answers.funding || '—') + '</div></div>' +
         '</div>' +
